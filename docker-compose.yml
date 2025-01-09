@@ -1,6 +1,19 @@
 version: '3.8'
 
 services:
+  app:
+    build:
+      context: .  # Build the Dockerfile from the current directory
+    container_name: nestjs-app
+    ports:
+      - "3000:3000"  # Expose port 3000 for NestJS app
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/sportsdb  # MongoDB connection URI
+    depends_on:
+      - mongo  # Ensure MongoDB is up before starting the app
+    networks:
+      - app-network
+      
   mongodb:
     image: mongo:latest
     container_name: mongodb
