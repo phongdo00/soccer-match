@@ -5,7 +5,6 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { CountriesModule } from './countries/countries.module';
 import { CompetitionsModule } from './competitions/competitions.module';
 import { TeamsModule } from './teams/teams.module';
-import { MatchesModule } from './matches/matches.module';
 
 @Module({
   imports: [
@@ -13,7 +12,6 @@ import { MatchesModule } from './matches/matches.module';
     CountriesModule,
     CompetitionsModule,
     TeamsModule,
-    MatchesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
