@@ -5,12 +5,6 @@ import { v4 as uuidv4 } from 'uuid';
 // Country Schema definition
 export const CountrySchema = new Schema(
   {
-    id: {
-      type: String,
-      required: true,
-      unique: true,
-      default: uuidv4, // Automatically generate a UUID if not provided
-    },
     name: { type: String, required: true },
     logo: { type: String, required: true },
   },

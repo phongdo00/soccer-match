@@ -23,7 +23,7 @@ export class CountriesService {
 
   // Find a country by id
   async findOne(id: string): Promise<Country | null> {
-    return this.countryModel.findOne({ id }).exec();
+    return this.countryModel.findById(id).exec();
   }
 
   // Update a country by id
