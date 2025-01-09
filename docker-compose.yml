@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017"  # Exposing port 27017
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root  # Username for the root user
+      - MONGO_INITDB_ROOT_PASSWORD=rootpassword  # Password for the root user
+    volumes:
+      - mongodb_data:/data/db  # Persistent storage for MongoDB data
+    networks:
+      - mongo-network
+    restart: unless-stopped  # Restart the container unless explicitly stopped
+
+volumes:
+  mongodb_data:
+    driver: local  # Ensures MongoDB data persists even after container restarts
+
+networks:
+  mongo-network:
+    driver: bridge  # Using the bridge network driver to allow containers to communicate
